@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Section, useStyles, TField } from "./styles";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const Auth = () => {
   //   const [userType, setUserType] = useState(null);
@@ -22,11 +23,42 @@ const Auth = () => {
               id="filled-basic"
               label="Name"
               variant="filled"
-              color="secondary"
+              color="primary"
               type="text"
             />
-            <TField id="filled-basic" label="Filled" variant="filled" />
+            <TField
+              id="filled-basic"
+              label="Email "
+              variant="filled"
+              color="primary"
+              type="email"
+            />
+
+            <TField
+              id="filled-basic"
+              label="Age"
+              variant="filled"
+              color="primary"
+              type="number"
+            />
+
+            <TField
+              id="filled-basic"
+              label="Password"
+              variant="filled"
+              color="primary"
+              type="password"
+            />
           </div>
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ marginTop: "10px" }}
+            type="submit"
+            
+          >
+            Sign Up
+          </Button>
         </form>
       </div>
     </div>

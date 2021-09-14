@@ -11,8 +11,8 @@ const Incentives = () => {
   return (
     <Section className="auth w-full h-screen flex justify-center items-center">
       {userType === "" ? (
-        <div className="choose_card  w-1/2 h-72 flex items-center flex-col border">
-          <h1 className="text_title font-bold text-3xl text-gray-800">
+        <div className="choose_card  w-1/2 h-72 flex items-center flex-col ">
+          <h1 className="text_title font-bold text-4xl text-gray-700">
             What best describe you?
           </h1>
           <div className="flex w-3/4  justify-between mx-auto mt-8">

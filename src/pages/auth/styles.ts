@@ -3,7 +3,7 @@ import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
 export const Section = styled.section`
-  background: red;
+  /* background: red; */
   /* width: ${(props) => props && "200px"}; */
   color: #fff;
 `;
@@ -12,7 +12,8 @@ export const TField = styled(TextField)`
   width: 100%;
   margin-top: 8px;
   margin-bottom: 8px;
-  
+  background-color: #fff;
+  color:red;
 `;
 
 export const useStyles = makeStyles((theme: Theme) =>
