@@ -20,9 +20,10 @@ const Auth = () => {
           <div className="fields flex flex-col mt-6 space-y-4">
             <TField
               id="filled-basic"
-              label="Filled"
+              label="Name"
               variant="filled"
               color="secondary"
+              type="text"
             />
             <TField id="filled-basic" label="Filled" variant="filled" />
           </div>
