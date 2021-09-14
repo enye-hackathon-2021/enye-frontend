@@ -1,6 +1,5 @@
-# welcome to the ribbon protocol project kindly read the style guide (for dev)
+# welcome to the enye-hackathon 2021
 
-you can as well write your style guide here as a contributor
 
 ## Main Stack
 
@@ -8,4 +7,3 @@ you can as well write your style guide here as a contributor
 > > tailwindcss
 > > sass
 
-# ribbonprotocol
