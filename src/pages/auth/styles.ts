@@ -12,7 +12,7 @@ export const TField = styled(TextField)`
   width: 100%;
   margin-top: 8px;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.primary};
   color:red;
 `;
 

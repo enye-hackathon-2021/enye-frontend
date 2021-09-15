@@ -95,7 +95,7 @@ const Home = () => {
 
 const Header = styled.div`
   .nav {
-    background: #0096FF;
+    background: #Header;
     height: 10vh;
   }
 
@@ -114,35 +114,35 @@ const Header = styled.div`
     button {
       border-radius: 5px;
       box-shadow: 0 0 10px rgb(170, 170, 170);
-      background: #FF6495;
+      background: #ff6495;
     }
   }
 
-.mobile {
-  animation-name: scroll-down;
-  animation-duration: .5s;
-  height: 30vh;
+  .mobile {
+    animation-name: scroll-down;
+    animation-duration: 0.5s;
+    height: 30vh;
 
-  ul {
-    background: none;
-  }
-
-  li {
-    font-weight: 600;
-    font-size: 1em;
-    margin-left: 2.5rem;
-  }
-
-  @keyframes scroll-down {
-    from {
-      transform: translateX(-100%);
+    ul {
+      background: none;
     }
 
-    to {
-      transform: translateX(0%);
+    li {
+      font-weight: 600;
+      font-size: 1em;
+      margin-left: 2.5rem;
+    }
+
+    @keyframes scroll-down {
+      from {
+        transform: translateX(-100%);
+      }
+
+      to {
+        transform: translateX(0%);
+      }
     }
   }
-}
-`
+`;
 
 export default Home;

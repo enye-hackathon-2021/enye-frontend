@@ -12,7 +12,7 @@ const Incentives = () => {
     <Section className="auth w-full h-screen flex justify-center items-center">
       {userType === "" ? (
         <div className="choose_card  w-1/2 h-72 flex items-center flex-col ">
-          <h1 className="text_title font-bold text-4xl text-gray-700">
+          <h1 className="text_title font-bold text-4xl text-green-700 font-joe">
             What best describe you?
           </h1>
           <div className="flex w-3/4  justify-between mx-auto mt-8">
@@ -22,7 +22,7 @@ const Incentives = () => {
               onClick={() => setUserType("patient")}
             >
               <img src={sick} alt="" className="w-full h-32" />
-              <h1 className="text-xl text-gray-800 w-full text-center mt-4 font-medium">
+              <h1 className="text-xl 0 w-full text-center mt-4 font-medium text-green-600 font-joe">
                 Patient
               </h1>
             </Paper>
@@ -33,7 +33,7 @@ const Incentives = () => {
               onClick={() => setUserType("expert")}
             >
               <img src={exp} alt="" className="w-full" />
-              <h1 className="text-xl text-gray-800 w-full text-center mt-4 font-medium">
+              <h1 className="text-xl text-green-600 w-full text-center mt-4 font-medium font-joe">
                 Expert
               </h1>
             </Paper>
