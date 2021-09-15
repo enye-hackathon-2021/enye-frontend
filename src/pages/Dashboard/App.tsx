@@ -54,14 +54,44 @@ const Dashboard = (props:any) => {
           </div>
         </div>
       </Sidebar>
-      <div className="main bg-green-200 h-full w-full">
+      <div className="main bg-green-50 h-full w-full">
         <div className="w-ful h-20 flex justify-between text-gray-800 items-center shadow-lg">
-          <h1 className="p_name text-xl font-semibold font-robo ml-14">
-            Patient
-          </h1>
+          <h1 className="p_name text-xl font-semibold font-robo ml-14"></h1>
           <h1 className="p_name text-xl font-semibold font-robo mr-14">
             Wallet bal__
           </h1>
+        </div>
+        <div className="section_route w-full h-full p-8 flex">
+          <Lodge className="lodge mt-4  p-4">
+            <h1 className="title">Complain</h1>
+
+            <textarea
+              name=""
+              id=""
+              cols={30}
+              rows={10}
+              placeholder="eg. I have few pains below my lungs"
+              className="bg-green-200 w-full mt-4 text-gray-700 text-xl p-4 outline-none"
+            ></textarea>
+
+            <div className="w-full flex  items-end">
+              <button className="btn font-normal mt-4">Complain</button>
+
+              <p className="text-gray-500 text-sm ml-4 font-robo font-medium">
+                Get help suggestions from random professionals arround the world
+              </p>
+            </div>
+          </Lodge>
+
+          <Session className="lodge mt-4 border p-2 shadow-inner">
+            <h1 className="title">Scheduled Sessions</h1>
+            {[1, 1, 1, 1, 1, 1].map((it) => (
+              <div className="rounded-md p-2 my-1 w-full h-14  flex items-center">
+                <div className="rounded-lg h-6  w-70% bg-green-100">..</div>
+                <div className="rounded-full h-6  w-11 bg-green-100 ml-3"></div>
+              </div>
+            ))}
+          </Session>
         </div>
       </div>
     </Section>
@@ -71,5 +101,13 @@ const Dashboard = (props:any) => {
 const Sidebar = styled.div`
 box-shadow: 5px 2px 5px 5px #000;
 `
+
+const Lodge = styled.section`
+  width: 70%;
+`;
+
+const Session = styled.section`
+  width: 30%;
+`;
 
 export default Dashboard;

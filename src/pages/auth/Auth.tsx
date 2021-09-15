@@ -91,11 +91,11 @@ const Auth = () => {
           </div>
 
           <div className="flex justify-between mt-6 items-end">
-            <NavLink to="/dashboard">
+      
               <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
                 sign up
               </button>
-            </NavLink>
+          
 
             {signedUp && (
               <p className="underline text-green-500">Reset Password</p>

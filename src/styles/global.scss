@@ -8,6 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: hidden;
+  color:"#374151"
 
   // height: 100vh;
 
@@ -26,3 +27,9 @@ body {
  .btn_2 {
 @apply  font-joe p-2 px-5 border border-green-500 capitalize text-xl rounded font-bold bg-transparent
 }
+
+ .title {
+@apply  font-robo text-xl font-bold text-gray-700
+}
+
+
