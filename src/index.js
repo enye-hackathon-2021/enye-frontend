@@ -15,9 +15,11 @@ const store = createStore(reducers, {}, compose(applyMiddleware(thunk)));
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <Provider store={store}>
     <ThemeProvider theme={defaultThem}>
       <App />,
      </ThemeProvider>
+    </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

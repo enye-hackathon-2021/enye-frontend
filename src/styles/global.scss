@@ -7,11 +7,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: hidden;
 
-  height: 100vh;
+  // height: 100vh;
+
 }
 
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+ .btn {
+@apply   font-joe p-2 px-5 bg-green-500 capitalize text-xl rounded font-bold
+}
+
+ .btn_2 {
+@apply  font-joe p-2 px-5 border border-green-500 capitalize text-xl rounded font-bold bg-transparent
+}

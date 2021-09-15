@@ -14,88 +14,36 @@ const Home = () => {
   }
 
   return (
-    <Header>
-      <nav className="w-full">
-        <div className = 'sm:hidden nav text-white flex items-center justify-between sm:px-10 px-5'>
-          <div className = ''>
-            LOGO
-          </div>
+    <Header className="bg-green-200 text-gray-700 fixed z-10 w-full top-0 ">
+      <nav className="w-full  flex justify-between ">
+        <div className="nav ml-11  flex items-center justify-between px-5">
+          <h1 className="font-logo font-bold text-2xl">healthLodge</h1>
 
-          <div className = 'block sm:hidden'>
-            <Hamburger onToggle = {handleToggle} /> 
+          <div className="block sm:hidden">
+            <Hamburger onToggle={handleToggle} />
           </div>
         </div>
 
-        <div className = 'hidden sm:block sm:flex items-center w-full text-white font-semibold nav'>
-          <div>
-            LOGO
-          </div>
-          <div className = 'sm:flex-1'></div>
-          <ul className = 'sm:flex justify-around px-10 hidden sm:block'>
-            <li className  = 'ml-5'>
-              <NavLink to = '/home'>
-                Home
-              </NavLink>
-            </li>
-          
-            <li className  = 'ml-5'>
-              <NavLink to = '/about'>
-                About
-              </NavLink>
-            </li>
-
-            <li className  = 'ml-5'>
-              <NavLink to = '/contact'>
-                Contact
-              </NavLink>
-            </li>
-
-            <li className  = 'ml-5'>
-              <NavLink to = '/people'>
-                Our Health Experts
-              </NavLink>
+        <div className="flex items-center justify-center mr-11 font-semibold nav ">
+          <ul className="flex items-center justify-around px-10  h-full">
+            <li className="ml-5 capitalize">
+              <NavLink to="/auth">log in</NavLink>{" "}
+            </li>{" "}
+            <li className="ml-7 capitalize btn">
+              <NavLink to="/auth">Sign up</NavLink>{" "}
             </li>
           </ul>
         </div>
-
-        {menu && (
-          <div className = 'mobile sm:hidden'>
-            <ul className = 'h-full flex flex-col justify-around'>
-            <li className  = 'ml-5'>
-              <NavLink to = '/home'>
-                Home
-              </NavLink>
-            </li>
-          
-            <li className  = 'ml-5'>
-              <NavLink to = '/about'>
-                About
-              </NavLink>
-            </li>
-
-            <li className  = 'ml-5'>
-              <NavLink to = '/contact'>
-                Contact
-              </NavLink>
-            </li>
-
-            <li className  = 'ml-5'>
-              <NavLink to = '/people'>
-                Our Health Experts
-              </NavLink>
-            </li>
-            </ul>
-          </div>
-        )}
       </nav>
     </Header>
-   )
+  );
 };
 ;
 
 const Header = styled.div`
+
+
   .nav {
-    background: #Header;
     height: 10vh;
   }
 
@@ -146,3 +94,18 @@ const Header = styled.div`
 `;
 
 export default Home;
+
+        // {menu && (
+        //   <div className="mobile sm:hidden">
+        //     <ul className="h-full flex flex-col justify-around">
+        //       <li className="ml-5 capitalize">
+        //         <NavLink to="/home">log in</NavLink>
+        //       </li>
+
+        //       <li className="ml-5 capitalize btn">
+        //         <NavLink to="/about">Sign up</NavLink>
+        //       </li>
+
+        //     </ul>
+        //   </div>
+        // )}

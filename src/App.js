@@ -3,12 +3,11 @@ import { Route, Switch } from "react-router";
 import Home from "./pages/Home";
 import Auth from "./pages/auth";
 import Protocol from "./pages/Protocol";
-import Header from "./components/Header";
+
 
 function App() {
   return (
-    <div className="App">
-    <Header/>
+    <div className="h-screen w-full bg-green-50">
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/auth" exact><Auth/></Route>

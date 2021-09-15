@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux"
+// import { BrowserRouter } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { Section, useStyles, TField } from "./styles";
 import TextField from "@material-ui/core/TextField";
 import IF from "../../components/FormInput";
 import Button from "@material-ui/core/Button";
-
+import {signInAction} from "../../actions/auth"
 const Auth = () => {
     const [signedUp, setSignedUp] = useState(true);
+  const dispatch = useDispatch();
+  const {pathname} = useLocation()
+  const history = useHistory();
 
   const classes = useStyles();
   const { handleSubmit, register } = useForm();
@@ -14,7 +20,12 @@ const Auth = () => {
 
   function submitHandler(data: any) {
     console.log(data);
+    dispatch(signInAction(data, history));
+    
   }
+  
+  useEffect(() => {
+  }, [])
   return (
     <div className="auth_bacground w-full h-screen flex">
       <div className="blank_design h-full w-3/5 bg-green-500 p-11">

@@ -8,7 +8,16 @@ module.exports = {
       robo: ["Roboto", "sans-serif"],
     },
     extend: {
-      colors: {},
+      spacing: {
+        "30%": "30%",
+        "70%": "70%",
+      },
+      colors: {
+        grad:{
+        low: "",
+        high: ""
+        }
+      },
     },
   },
   variants: {
