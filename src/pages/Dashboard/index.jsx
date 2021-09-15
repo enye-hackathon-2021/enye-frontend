@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useSelector} from "react-redux"
 import { Section } from "./styles";
 import Auth from "../auth/Auth";
 import App from "./App"
@@ -16,15 +17,16 @@ const User = {
 
 }
 
-const Dashboard = () => {
-  const [signedIn, setSignedIn] = useState(true);
+const Dashboard = ({store}) => {
+  const [signedIn, setSignedIn] = useState(false);
   const [loggedUser, setLoggedUser] = useState(User);
-  
+  // console.log(store);
   useEffect(() => {
-  
-//  if(localStorage.getItem("profile")){
-//  setLoggedUser(JSON.parse(localStorage.getItem("profile")))
-//  }
+ 
+ if (localStorage.getItem("profile")) {
+   setLoggedUser(JSON.parse(localStorage.getItem("profile")));
+   setSignedIn(true)
+ }
   }, [])
   
   

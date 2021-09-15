@@ -1,17 +1,20 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 // import { BrowserRouter } from "react-router-dom";
 import { useLocation, useHistory, NavLink } from "react-router-dom";
 import { Section, useStyles, TField } from "./styles";
 import TextField from "@material-ui/core/TextField";
 import IF from "../../components/FormInput";
 import Button from "@material-ui/core/Button";
-import {signInAction} from "../../actions/auth"
+import { signInAction, logInAction } from "../../actions/auth";
+
+
+
 const Auth = () => {
-    const [signedUp, setSignedUp] = useState(true);
+  const [signedUp, setSignedUp] = useState(true);
   const dispatch = useDispatch();
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const history = useHistory();
 
   const classes = useStyles();
@@ -19,13 +22,16 @@ const Auth = () => {
   //   userType === "" && true;
 
   function submitHandler(data: any) {
-    console.log(data);
+   if(!signedUp){
     dispatch(signInAction(data, history));
-    
+    // setSignedUp(true)
+   }else{
+    dispatch(logInAction(data, history));
+   
+   }
   }
-  
-  useEffect(() => {
-  }, [])
+
+  useEffect(() => {}, []);
   return (
     <div className="auth_bacground w-full h-screen flex">
       <div className="blank_design h-full w-3/5 bg-green-500 p-11">
@@ -70,11 +76,36 @@ const Auth = () => {
               type="password"
               placeholder="Password"
             />
+            {!signedUp && (
+              <>
+                <IF
+                  name="role"
+                  register={register}
+                  type="textarea"
+                  placeholder="Role"
+                />
+                <div className="flex space-x-2">
+                  <IF
+                    name="field"
+                    register={register}
+                    type="text"
+                    placeholder="field"
+                  />
+
+                  <IF
+                    name="experienceLevel"
+                    register={register}
+                    type="text"
+                    placeholder="Level e.g: Senior, Intermidiate"
+                  />
+                </div>
+              </>
+            )}
 
             {!signedUp && (
               <div className="flex space-x-2">
                 <IF
-                  name="Age"
+                  name="age"
                   register={register}
                   type="number"
                   placeholder="Age"
@@ -91,11 +122,9 @@ const Auth = () => {
           </div>
 
           <div className="flex justify-between mt-6 items-end">
-      
-              <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
-                sign up
-              </button>
-          
+            <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
+              sign up
+            </button>
 
             {signedUp && (
               <p className="underline text-green-500">Reset Password</p>

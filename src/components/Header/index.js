@@ -26,10 +26,10 @@ const Home = () => {
 
         <div className="flex items-center justify-center mr-11 font-semibold nav ">
           <ul className="flex items-center justify-around px-10  h-full">
-            <li className="ml-5 capitalize">
+            <li className="ml-5 capitalize text-gray-800">
               <NavLink to="/auth">log in</NavLink>{" "}
             </li>{" "}
-            <li className="ml-7 capitalize btn">
+            <li className="ml-7 capitalize btn text-gray-800">
               <NavLink to="/auth">Sign up</NavLink>{" "}
             </li>
           </ul>

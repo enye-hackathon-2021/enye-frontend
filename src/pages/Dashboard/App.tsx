@@ -7,8 +7,16 @@ import styled from "styled-components";
 
 
 
-const Dashboard = (props:any) => {
-//   const [signedIn, setSignedIn] = useState(true);
+const Dashboard = ({user}:any) => {
+  //   const [signedIn, setSignedIn] = useState(true);
+
+  console.log(user);
+
+function logOut() {
+  localStorage.clear()
+}
+
+
   return (
     <Section className="dash w-full  h-screen flex bg-green-200">
       <Sidebar className="sidebar bg-green-500 h-full w-80 shadow-lg">
@@ -48,15 +56,21 @@ const Dashboard = (props:any) => {
           <span className="border w-full"></span>
 
           <div className="link_item capitalize w-full h-11 mt-6 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-xl rounded-lg flex items-center hover:bg-green-100 ">
-            <NavLink className="capitalize active:bg-green-200" to="/">
+            <button
+              onClick={logOut}
+              className="capitalize active:bg-green-200"
+              
+            >
               log out
-            </NavLink>
+            </button>
           </div>
         </div>
       </Sidebar>
       <div className="main bg-green-50 h-full w-full">
         <div className="w-ful h-20 flex justify-between text-gray-800 items-center shadow-lg">
-          <h1 className="p_name text-xl font-semibold font-robo ml-14"></h1>
+          <h1 className="p_name text-xl font-semibold font-robo ml-14">
+            {user.data.name}
+          </h1>
           <h1 className="p_name text-xl font-semibold font-robo mr-14">
             Wallet bal__
           </h1>

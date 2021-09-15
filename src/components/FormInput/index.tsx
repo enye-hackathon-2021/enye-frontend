@@ -54,7 +54,7 @@ const Container = styled.div`
     height: 100%;
     margin-top: 10px;
     /* color: */
-    color: #${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.primary};
     &:focus {
       outline: 1px solid transparent;
     }
