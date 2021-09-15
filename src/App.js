@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router";
 import Home from "./pages/Home";
 import Auth from "./pages/auth";
-import Protocol from "./pages/Protocol";
+import Dashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -10,8 +10,10 @@ function App() {
     <div className="h-screen w-full bg-green-50">
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/auth" exact><Auth/></Route>
-        <Route path="/protocol" exact component={Protocol} />
+        <Route path="/auth" exact>
+          <Auth />
+        </Route>
+        <Route path="/dashboard" exact component={Dashboard} />
       </Switch>
     </div>
   );

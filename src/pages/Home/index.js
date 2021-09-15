@@ -34,7 +34,7 @@ const Home = () => {
           <button
             type="submit"
             className="btn_2 transition text-green-200 ml-4 hover:text-gray-800 hover:bg-green-500"
-            onClick={() => push("/auth")}
+            onClick={() => push("/dashboard")}
           >
             schedule session
           </button>

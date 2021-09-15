@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux"
 // import { BrowserRouter } from "react-router-dom";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory, NavLink } from "react-router-dom";
 import { Section, useStyles, TField } from "./styles";
 import TextField from "@material-ui/core/TextField";
 import IF from "../../components/FormInput";
@@ -91,16 +91,21 @@ const Auth = () => {
           </div>
 
           <div className="flex justify-between mt-6 items-end">
-            <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
-              sign up
-            </button>
+            <NavLink to="/dashboard">
+              <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
+                sign up
+              </button>
+            </NavLink>
 
             {signedUp && (
               <p className="underline text-green-500">Reset Password</p>
             )}
           </div>
         </form>
-        <div onClick={() => setSignedUp((p)=>!p)} className="actions text-center text-green-600 text-sm absolute bottom-6 ml-10 cursor-pointer">
+        <div
+          onClick={() => setSignedUp((p) => !p)}
+          className="actions text-center text-green-600 text-sm absolute bottom-6 ml-10 cursor-pointer"
+        >
           {signedUp ? "Create an account" : "Log in"}
         </div>
       </div>

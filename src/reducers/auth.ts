@@ -4,8 +4,9 @@ const authReducer = (
 ) => {
   switch (action.type) {
     case "AUTH":
-      // console.log(action.data);
-      return state;
+      console.log(action.data);
+      localStorage.setItem('profile', JSON.stringify({...action?.data}))
+      return { ...state, authData:action.data,error:null};
 
     default:
       return state;
