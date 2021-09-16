@@ -1,9 +1,13 @@
 interface userAuthType {
   authData?: any;
+  error: null;
+  message?: string;
 }
 
 const authUser: userAuthType = {
   authData: null,
+  error:null,
+  message:""
 };
 
 
@@ -20,7 +24,6 @@ const authReducer = (state = authUser, action: { type: string; data: any }) => {
       };
 
     case "LOGIN":
-      console.log(action.data);
       localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
       return { ...state, authData: action.data, error: null };
 

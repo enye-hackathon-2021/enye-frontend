@@ -1,17 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Section, useStyles } from "./styles";
 import Auth from "./Auth";
 import Paper from "@material-ui/core/Paper";
 import exp from "../../asset/expert.png";
 import sick from "../../asset/sick.png";
+import { useDispatch } from "react-redux";
 
-const Incentives = () => {
+
+
+
+const UserTypeAuth = () => {
   const [userType, setUserType] = useState("");
   const classes = useStyles();
+  const dispatch = useDispatch();
+  
+  
+  
+  function noNeedLogin() {
+  console.log('i worked');
+  
+    if (localStorage.getItem("profile")) {
+    console.log("profile is present");
+      dispatch({ type: "SIGN_IN_TOGGLE", payload: true });
+    
+    
+    } else {
+      dispatch({ type: "SIGN_IN_TOGGLE", payload: false });
+    }
+  }
+
+  setTimeout(() => {
+    noNeedLogin();
+  }, 1000);
+
+
+  
+    // useEffect(() => {
+    //   const User = localStorage.getItem("profile");
+
+    //   if (User) {
+    //    dispatch({type:"SIGN_IN_TOGGLE",payload:true});
+    //   }
+    // }, []);
+
   return (
     <Section className="auth w-full h-screen flex justify-center items-center">
       {userType === "" ? (
-        <div className="choose_card  w-1/2 h-72 flex items-center flex-col ">
+        <div className="choose_card  w-600p  h-72 flex items-center flex-col ">
           <h1 className="text_title font-bold text-4xl text-green-700 font-joe">
             What best describe you?
           </h1>
@@ -46,4 +81,4 @@ const Incentives = () => {
   );
 };
 
-export default Incentives;
+export default UserTypeAuth;

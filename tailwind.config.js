@@ -8,15 +8,21 @@ module.exports = {
       robo: ["Roboto", "sans-serif"],
     },
     extend: {
+      boxShadow: {
+        nav: "0 2px 2px 0 rgba(0, 0, 0, 0.05)",
+      },
       spacing: {
         "30%": "30%",
         "70%": "70%",
+        "500p": "500px",
+        "550p": "550px",
+        "600p": "600px",
       },
       colors: {
-        grad:{
-        low: "",
-        high: ""
-        }
+        grad: {
+          low: "",
+          high: "",
+        },
       },
     },
   },

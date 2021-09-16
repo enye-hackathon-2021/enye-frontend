@@ -48,16 +48,21 @@ const Container = styled.div`
     background: ${({ theme }) => theme.secondary};
 
     padding: 1rem;
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     border-radius: 4px;
     height: 100%;
     margin-top: 10px;
-    /* color: */
-    color: ${({ theme }) => theme.primary};
+    color:#000;
+    font-weight:500;
+    /* color: ${({ theme }) => theme.primary}; */
     &:focus {
       outline: 1px solid transparent;
     }
+    
+  &::placeholder{
+  color:#0007;
+  }
   }
 `;
 export default FormInput;

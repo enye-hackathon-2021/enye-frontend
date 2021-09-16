@@ -9,9 +9,7 @@ import IF from "../../components/FormInput";
 import Button from "@material-ui/core/Button";
 import { signInAction, logInAction } from "../../actions/auth";
 
-
-
-const Auth = () => {
+const Auth = ({ setSignedIn }: any) => {
   const [signedUp, setSignedUp] = useState(true);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -22,25 +20,32 @@ const Auth = () => {
   //   userType === "" && true;
 
   function submitHandler(data: any) {
-   if(!signedUp){
-    dispatch(signInAction(data, history));
-    // setSignedUp(true)
-   }else{
-    dispatch(logInAction(data, history));
-   
-   }
+    if (!signedUp) {
+      dispatch(signInAction(data, history));
+      setSignedUp(true);
+    } else {
+      dispatch(logInAction(data, history));
+          
+      
+    }
   }
+    const User = localStorage.getItem("profile");
+  
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (User) {
+      dispatch({ type: "SIGN_IN_TOGGLE", payload: true });
+    }
+  }, [User]);
   return (
     <div className="auth_bacground w-full h-screen flex">
-      <div className="blank_design h-full w-3/5 bg-green-500 p-11">
+      <div className="blank_design h-full w-1/2 md:w-3/5 bg-green-500 p-11">
         <div className="header text-6xl font-bold font-joe">
           Your health matters
         </div>
       </div>
 
-      <div className="auth_session relative h-full w-5/12 bg-green-50 p-8 flex-col flex justify-center">
+      <div className="auth_session relative h-full w-2/3 md:w-5/12 bg-green-50 p-8 flex-col flex justify-center">
         <form
           action=""
           className=" p-6 w-full"
@@ -77,29 +82,21 @@ const Auth = () => {
               placeholder="Password"
             />
             {!signedUp && (
-              <>
+              <div className="flex space-x-2">
                 <IF
-                  name="role"
+                  name="field"
                   register={register}
-                  type="textarea"
-                  placeholder="Role"
+                  type="text"
+                  placeholder="field"
                 />
-                <div className="flex space-x-2">
-                  <IF
-                    name="field"
-                    register={register}
-                    type="text"
-                    placeholder="field"
-                  />
 
-                  <IF
-                    name="experienceLevel"
-                    register={register}
-                    type="text"
-                    placeholder="Level e.g: Senior, Intermidiate"
-                  />
-                </div>
-              </>
+                <IF
+                  name="experienceLevel"
+                  register={register}
+                  type="text"
+                  placeholder="Level e.g: Senior, Intermidiate"
+                />
+              </div>
             )}
 
             {!signedUp && (
@@ -119,11 +116,18 @@ const Auth = () => {
                 />
               </div>
             )}
+
+            <IF
+              name="role"
+              register={register}
+              type="textarea"
+              placeholder="Role: doctor or patient"
+            />
           </div>
 
           <div className="flex justify-between mt-6 items-end">
             <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
-              sign up
+              {!signedUp ? "sign up" : "Log In"}
             </button>
 
             {signedUp && (
