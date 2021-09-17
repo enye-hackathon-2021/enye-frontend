@@ -6,7 +6,7 @@ interface fcTypes {
   label?: string;
   type: string;
   name: string;
-  register: any;
+  register?: any;
   read?: any;
   req?: any;
   placeholder?: string;
@@ -32,6 +32,9 @@ const FormInput = ({
         {...register(name, { required: req ? true : false })}
         placeholder={placeholder}
         readOnly={read}
+        value={value}
+        
+        
       />
     </Container>
   );

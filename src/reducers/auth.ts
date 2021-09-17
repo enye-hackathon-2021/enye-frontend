@@ -14,7 +14,6 @@ const authUser: userAuthType = {
 const authReducer = (state = authUser, action: { type: string; data: any }) => {
   switch (action.type) {
     case "AUTH":
-      console.log(action.data);
       // localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
       return {
         ...state,
@@ -25,6 +24,7 @@ const authReducer = (state = authUser, action: { type: string; data: any }) => {
 
     case "LOGIN":
       localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
+      
       return { ...state, authData: action.data, error: null };
 
     default:

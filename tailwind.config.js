@@ -20,7 +20,7 @@ module.exports = {
       },
       colors: {
         grad: {
-          low: "",
+          low: "rgba(0, 0, 0, 0.75)",
           high: "",
         },
       },

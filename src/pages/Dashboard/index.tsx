@@ -10,20 +10,26 @@ const Dashboard = () => {
   const [signedIn, setSignedIn] = useState(true);
   const [loggedUser, setLoggedUser] = useState({});
 
-  const { location } = useHistory();
+  const { location,push } = useHistory();
   const { SignIn } = useSelector(({ toggles }: any) => toggles);
   const dispatch = useDispatch();
-console.log(SignIn);
+  
 
   async function getUserDetails() {
     const User: any = await localStorage.getItem("profile");
-    setLoggedUser(JSON.parse(User).data);
+    if (User) {
+      setLoggedUser(JSON.parse(User).data);
+  
+    } else{
+    push('/auth')
+    }
   }
 
   useEffect(() => {
     getUserDetails();
     
   }, []);
+  
   useEffect(() => {
     console.log("i should check for update");
   }, [location.pathname]);

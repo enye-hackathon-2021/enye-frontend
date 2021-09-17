@@ -9,34 +9,55 @@ import IF from "../../components/FormInput";
 import Button from "@material-ui/core/Button";
 import { signInAction, logInAction } from "../../actions/auth";
 
-const Auth = ({ setSignedIn }: any) => {
+const Auth = ({ setSignedIn, userType }: any) => {
   const [signedUp, setSignedUp] = useState(true);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const history = useHistory();
 
+
+const intialUser: any = {
+  name: "",
+  email: "",
+  role: userType,
+  gender: "",
+  age: 0,
+  field: "",
+  experienceLevel: "",
+  password: "",
+};
   const classes = useStyles();
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, setValue } = useForm();
   //   userType === "" && true;
+  
+  
+ 
+
+
 
   function submitHandler(data: any) {
+  // setValue("role", userType);
     if (!signedUp) {
-      dispatch(signInAction(data, history));
+    
+      dispatch(signInAction({ ...data, role: userType }, history));
       setSignedUp(true);
     } else {
-      dispatch(logInAction(data, history));
-          
-      
+  console.log(data);
+    
+      dispatch(logInAction({ ...data, role: userType }, history));
     }
   }
-    const User = localStorage.getItem("profile");
-  
+  const User = localStorage.getItem("profile");
 
   useEffect(() => {
     if (User) {
-      dispatch({ type: "SIGN_IN_TOGGLE", payload: true });
+      // dispatch({ type: "SIGN_IN_TOGGLE", payload: true });
+  
     }
   }, [User]);
+  
+  
+  
   return (
     <div className="auth_bacground w-full h-screen flex">
       <div className="blank_design h-full w-1/2 md:w-3/5 bg-green-500 p-11">
@@ -94,7 +115,7 @@ const Auth = ({ setSignedIn }: any) => {
                   name="experienceLevel"
                   register={register}
                   type="text"
-                  placeholder="Level e.g: Senior, Intermidiate"
+                  placeholder="Level ex. senior, intermidiate"
                 />
               </div>
             )}
@@ -112,17 +133,19 @@ const Auth = ({ setSignedIn }: any) => {
                   name="gender"
                   register={register}
                   type="text"
-                  placeholder="Gender"
+                  placeholder="Gender ex. male"
                 />
               </div>
             )}
 
-            <IF
+            {/* <IF
               name="role"
               register={register}
               type="textarea"
               placeholder="Role: doctor or patient"
-            />
+              value={userType} 
+              
+            /> */}
           </div>
 
           <div className="flex justify-between mt-6 items-end">
