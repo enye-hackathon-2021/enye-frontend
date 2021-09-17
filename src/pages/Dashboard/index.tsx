@@ -29,7 +29,7 @@ console.log(SignIn);
   }, [location.pathname]);
 
   return (
-    <Section className="dash w-full h-screen flex justify-center items-center">
+    <Section className="dash w-full flex justify-center items-center">
       {SignIn ? <App loggedUser={loggedUser} /> : <UserTypeAuth />}
     </Section>
   );

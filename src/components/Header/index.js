@@ -41,8 +41,6 @@ const Home = () => {
 ;
 
 const Header = styled.div`
-
-
   .nav {
     height: 10vh;
   }

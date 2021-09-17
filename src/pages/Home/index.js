@@ -10,13 +10,13 @@ const Home = () => {
   return (
     <Hero className="relative w-full ">
       <Header />
-      <img src={bg} alt="" className="absolute w-full h-full" />
+      <img src={bg} alt="" className="absolute object-fit w-full h-full" />
       <div className="absolute w-full h-full opacity-70 layer bg-gradient-to-r from-black via-gray-900 "></div>
       <div className="w-1/2 content-cont  absolute top-30% -translate-y-1/2 left-10 text-gray-600 ">
         <h1 className="font-medium sm:mb-5 text-6xl w-full font-robo text-green-100">
           MEET OUR HEALTH PROFESSIONALS
         </h1>
-        <p className="font-medium text-green-50 text-xl">
+        <p className="font-medium text-green-50 text-xl text">
           Get fast response to your health issues with our team of expert health
           professionals. It's simple. Take a look at a list of all our health
           experts, chat with them, get first aid recommendation and a lot more,
@@ -48,6 +48,9 @@ const Hero = styled.div`
   height: 100%;
   /* border: 1px solid red; */
   
+  .btn {
+    color: white;
+  }
 
   background-size:cover;
 
