@@ -28,6 +28,7 @@ const Dashboard = () => {
   useEffect(() => {
     getUserDetails();
     
+    
   }, []);
   
   useEffect(() => {

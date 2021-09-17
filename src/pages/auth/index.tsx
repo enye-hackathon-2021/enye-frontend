@@ -58,6 +58,14 @@ const UserTypeAuth = () => {
 
 export function SelectRolePage({ setUserType }: any) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  
+  
+  function setUser(role: any){
+  setUserType("patient");
+    dispatch({ type: "SET_USER", payload: role });
+  
+  }
 
   return (
     <div className="modal absolute w-full h-full flex justify-center items-center z-10 bg-grad-low">
@@ -69,7 +77,7 @@ export function SelectRolePage({ setUserType }: any) {
           <Paper
             className={classes.root}
             elevation={1}
-            onClick={() => setUserType("patient")}
+            onClick={() => setUser("patient")}
           >
             <img src={sick} alt="" className="w-full h-32" />
             <h1 className="text-xl 0 w-full text-center mt-4 font-medium text-green-600 font-joe">
@@ -80,7 +88,7 @@ export function SelectRolePage({ setUserType }: any) {
           <Paper
             className={classes.root}
             elevation={1}
-            onClick={() => setUserType("doctor")}
+            onClick={() => setUser("doctor")}
           >
             <img src={exp} alt="" className="w-full" />
             <h1 className="text-xl text-green-600 w-full text-center mt-4 font-medium font-joe">

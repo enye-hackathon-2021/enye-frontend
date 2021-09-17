@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 export const Section = styled.section`
   /* background: red; */
   /* width: ${(props) => props && "200px"}; */
-  color: #fff;
+  /* color: #fff; */
 `;
 
 export const TField = styled(TextField)`

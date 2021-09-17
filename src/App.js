@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div className="h-screen w-full bg-green-50">
+    <div className="h-screen w-full bg-green-50 text-gray-600">
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/auth" exact>

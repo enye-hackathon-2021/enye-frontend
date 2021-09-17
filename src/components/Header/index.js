@@ -14,7 +14,7 @@ const Home = () => {
   }
 
   return (
-    <Header className="bg-green-200 text-gray-700 fixed z-10 w-full top-0 ">
+    <Header className="bg-green-100 text-gray-700 fixed z-10 w-full top-0 ">
       <nav className="w-full  flex justify-between ">
         <div className="nav ml-11  flex items-center justify-between px-5">
           <h1 className="font-logo font-bold text-2xl">healthLodge</h1>

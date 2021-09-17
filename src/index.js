@@ -7,6 +7,7 @@ import thunk from "redux-thunk";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import {defaultThem} from "./styles/theme"
+import {GlobalStyles} from "./styles/global"
 import "./styles/global.scss";
 import App from "./App";
 
@@ -17,6 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
     <Provider store={store}>
     <ThemeProvider theme={defaultThem}>
+    <GlobalStyles/>
       <App />,
      </ThemeProvider>
     </Provider>
