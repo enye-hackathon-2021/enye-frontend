@@ -40,17 +40,6 @@ const Settings = () => {
                 <div className ='font-bold text-2xl'>
                     Settings
                 </div>
-
-                <form onSubmit = {handleWalletFund} className = 'flex h-full justify-center items-center'> 
-                    <input 
-                        type = "text"
-                        placeholder = "Enter amount to fund" 
-                        value = {amount}
-                        onChange = {handleAmount}  
-                        className = 'amount py-3 px-4 mr-2'  
-                    />
-                    <input type = "submit" value = "Fund Wallet" className = 'btn text-white' />
-                </form>
           </Lodge>
         </div>
     )
@@ -58,16 +47,5 @@ const Settings = () => {
 
 const Lodge = styled.section`
     width: 100%;
-
-    form {
-        input {
-            outline: none;
-        }
-
-        btn {
-            background: rgba(0, 128, 0, .3);
-            cursor: pointer;
-        }
-    }
 `;
 export default Settings

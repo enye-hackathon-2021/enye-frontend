@@ -13,3 +13,4 @@ const API = axios.create({
 // signIn function handler
 export const signIn = (formData: any) => API.post("/register", formData);
 export const logIn = (formData:any) => API.post("/login", formData);
+export const getWallet = () => API.get("/balance")

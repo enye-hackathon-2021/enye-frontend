@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios';
 
 const Overview = () => {
+
+  const [question, setQuestion] = useState("")
+
+  const handleValue = (e) => {
+    setQuestion(e.target.value)
+  }
+
+  console.log(question)
+
+  const handleDescriptionSubmit = async (e) => {
+    e.preventDefault() ;
+    const url = "https://frozen-thicket-57367.herokuapp.com/api/v1/questions"
+    const token = JSON.parse(localStorage.getItem('profile')).data.token;
+
+    const config = {
+      headers: {Authorization: `Bearer ${token}` }
+    }
+
+    try {
+      const data = await axios.post(url, {
+        question
+      },
+        config
+      )
+      alert('Created Successfully')
+      setQuestion('');
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+      alert('Not successful')
+    }
+  }
+
     return (
       <div>
         <Lodge className="lodge mt-4 p-4">
@@ -10,18 +44,21 @@ const Overview = () => {
           <textarea
             name=""
             id=""
+            required
             cols={30}
             rows={10}
-            placeholder="eg. I have few pains below my lungs"
+            placeholder="e.g. I have few pains below my lungs"
+            value = {question}
+            onChange = {handleValue}
             className="bg-green-200 w-full mt-4 text-gray-700 text-xl p-4 outline-none h-48"
           ></textarea>
           <div className="w-full p-1  my-2 text-gray-500 text-sm">
             <b>Notice:</b>
 
             <p className="notice w-4/5">
-              To get real respone from an expert use the consult button bellow
-              By clicking consult bellow your complaint would be visible to
-              professionals in that field, you would be notified when your
+              To get real respone from an expert use the consult button bellow.
+              By clicking consult below your complaint would be visible to
+              professionals in that field, you will be notified when your
               complain has been attended to.
             </p>
           </div>
@@ -29,7 +66,7 @@ const Overview = () => {
             <button className="btn font-normal font-robo mt-4 text-gray-50">
               fast response
             </button>
-            <button className="btn font-normal font-robo mt-4 ml-4 text-gray-50">
+            <button type = "submit" className="btn font-normal font-robo mt-4 ml-4 text-gray-50" onClick = {handleDescriptionSubmit}>
               Consult
             </button>
 

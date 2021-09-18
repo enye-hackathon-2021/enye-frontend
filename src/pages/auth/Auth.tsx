@@ -42,7 +42,7 @@ const intialUser: any = {
       dispatch(signInAction({ ...data, role: userType }, history));
       setSignedUp(true);
     } else {
-  console.log(data);
+  // console.log(data);
     
       dispatch(logInAction({ ...data, role: userType }, history));
     }
@@ -61,8 +61,11 @@ const intialUser: any = {
   return (
     <div className="auth_bacground w-full h-screen flex">
       <div className="blank_design h-full w-1/2 md:w-3/5 bg-green-500 p-11">
-        <div className="header text-6xl font-bold font-joe">
+        <div className="header text-6xl text-white font-bold font-joe">
           Your health matters
+        </div>
+        <div>
+          
         </div>
       </div>
 
@@ -149,7 +152,7 @@ const intialUser: any = {
           </div>
 
           <div className="flex justify-between mt-6 items-end">
-            <button className="px-4 py-2 bg-green-500 text-center capitalize  font-medium ">
+            <button className="px-5 rounded py-2 bg-green-500 text-center capitalize text-white font-medium ">
               {!signedUp ? "sign up" : "Log In"}
             </button>
 

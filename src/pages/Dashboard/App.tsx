@@ -10,6 +10,8 @@ import Settings from "../../components/Patient/Settings";
 import DocOverview from "../../components/Doctor/Overview";
 import Complaints from "../../components/Doctor/Complaints";
 
+import {walltAction} from "../../actions/auth";
+import DocSettings from '../../components/Doctor/Settings'
 
 const user = {
   // role: "",
@@ -26,9 +28,14 @@ const Dashboard = ({ loggedUser }: any) => {
   //   const [signedIn, setSignedIn] = useState(true);
 
   const { userType } = useSelector(({ toggles }: any) => toggles);
-  console.log(userType);
+
+  const { amount } = useSelector(({ wallet }: any) => wallet);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(walltAction());
+  }, []);
 
   const [state, setState] = useState({
     overview: true,
@@ -90,47 +97,59 @@ const Dashboard = ({ loggedUser }: any) => {
         {/*  */}
 
         <div className="nav  mt-11 flex flex-col h-auto  p-4 py-8">
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100 bg-green-200 hover:text-gray-800">
+          <Nav
+            active = {state.overview}
+            onClick={handleOverviewDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400 hover:text-gray-800"
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleOverviewDisplay}
             >
               Overview
             </div>
-          </div>
+          </Nav>
           <br />
           <span className="border border-gray-300 w-full"></span>
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100">
+          <Nav 
+            onClick={handleSchedulesDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400"
+            active = {state.schedules}  
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleSchedulesDisplay}
             >
               Schedules
             </div>
-          </div>
+          </Nav>
 
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100">
+          <Nav 
+            onClick={handleResponseDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400"
+            active = {state.response}  
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleResponseDisplay}
             >
-              {userType === "patient" ? " Responses" : "Complaints"}
+              {userType === "doctor" ? " Complaint" : "Response"}
             </div>
-          </div>
+          </Nav>
 
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100">
+          <Nav 
+            onClick={handleSettingsDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400"
+            active = {state.settings}  
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleSettingsDisplay}
             >
               Settings
             </div>
-          </div>
+          </Nav>
 
           <br />
           <span className="border border-gray-300 w-full"></span>
 
-          <div className="link_item capitalize w-full h-11 mt-6 px-4  text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100 ">
+          <div className="link_item capitalize w-full h-11 mt-6 px-4  text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400 ">
             <button
               onClick={logOut}
               className="capitalize active:bg-green-200 text-white"
@@ -148,9 +167,14 @@ const Dashboard = ({ loggedUser }: any) => {
               <i>{userType}</i>
             </p>
           </div>
-          <h1 className="p_name text-xl font-semibold font-robo mr-14">
-            Wallet bal__
-          </h1>
+          <div className="wallet flex items-center border-b border-green-500  mr-14">
+            <h1 className="p_name text-xl text-green-500 font-normal font-robo ">
+              Balance:
+            </h1>
+            <h1 className="balance text-2xl font-bold text-green-500 font-joe ml-4">
+              #{amount}.00
+            </h1>
+          </div>
         </div>
         <div className="section_route w-full h-full p-8 flex">
           <Lodge>
@@ -161,7 +185,8 @@ const Dashboard = ({ loggedUser }: any) => {
            
 
             {state.schedules === true && <Schedules />}
-            {state.settings === true && <Settings />}
+            {state.settings === true && 
+              (userType === "patient" ? <Settings /> : <DocSettings />)}
             {/* {state.settings === true && } */}
           </Lodge>
 
@@ -200,5 +225,10 @@ const Lodge = styled.section`
 const Session = styled.section`
   width: 30%;
 `;
+
+const Nav:any = styled.div`
+  background: ${({active}: any) => active && "rgba(0,128,0,.3)"};
+
+`
 
 export default Dashboard;

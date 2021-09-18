@@ -51,21 +51,13 @@ const Response = () => {
                 <div>
                    {questions.map((question, i) => (
                         <div key = 'i' className = 'mb-3 bg-green-400 py-2 px-2 rounded'>
-                            <div className = 'font-semibold'>
+                            <div className = 'font-semibold text-white'>
                             Q: {question.question}
                             </div>
-                            <div className = 'font-semibold'>
+                            <div className = 'font-semibold text-white'>
                                 <small>
                                 A:    {question.answer}
                                 </small>
-                            </div>
-
-                            <div className = 'mt-4 flex justify-between'>
-                                <p className = 'answers px-3 py-2 font-normal'>
-                                    <CommentIcon fontSize = "small" className = 'mr-1' />
-                                        {question.number} answers
-                                </p>
-                                <button className = 'view' className = 'bg-green-600 px-3 py-2 rounded'>View all</button>
                             </div>
                         </div>
                     ))}
