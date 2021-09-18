@@ -10,16 +10,29 @@ const Overview = () => {
     setQuestion(e.target.value)
   }
 
+  console.log(question)
+
   const handleDescriptionSubmit = async (e) => {
     e.preventDefault() ;
     const url = "https://frozen-thicket-57367.herokuapp.com/api/v1/questions"
+    const token = JSON.parse(localStorage.getItem('profile')).data.token;
+
+    const config = {
+      headers: {Authorization: `Bearer ${token}` }
+    }
+
     try {
       const data = await axios.post(url, {
-        question: value
-      })
+        question
+      },
+        config
+      )
+      alert('Created Successfully')
+      setQuestion('');
       console.log(data)
     } catch (error) {
       console.log(error)
+      alert('Not successful')
     }
   }
 
@@ -35,6 +48,7 @@ const Overview = () => {
             cols={30}
             rows={10}
             placeholder="e.g. I have few pains below my lungs"
+            value = {question}
             onChange = {handleValue}
             className="bg-green-200 w-full mt-4 text-gray-700 text-xl p-4 outline-none h-48"
           ></textarea>
