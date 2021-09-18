@@ -8,6 +8,8 @@ import Response from "../../components/Patient/Response";
 import Schedules from "../../components/Patient/Schedules";
 import Settings from "../../components/Patient/Settings";
 import DocOverview from "../../components/Doctor/Overview";
+import {walltAction} from "../../actions/auth";
+import DocSettings from '../../components/Doctor/Settings'
 
 const user = {
   // role: "",
@@ -24,9 +26,14 @@ const Dashboard = ({ loggedUser }: any) => {
   //   const [signedIn, setSignedIn] = useState(true);
 
   const { userType } = useSelector(({ toggles }: any) => toggles);
-  // console.log(userType);
+
+  const { amount } = useSelector(({ wallet }: any) => wallet);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(walltAction());
+  }, []);
 
   const [state, setState] = useState({
     overview: true,
@@ -158,9 +165,14 @@ const Dashboard = ({ loggedUser }: any) => {
               <i>{userType}</i>
             </p>
           </div>
-          <h1 className="p_name text-xl font-semibold font-robo mr-14">
-            Wallet bal__
-          </h1>
+          <div className="wallet flex items-center border-b border-green-500  mr-14">
+            <h1 className="p_name text-xl text-green-500 font-normal font-robo ">
+              Balance:
+            </h1>
+            <h1 className="balance text-2xl font-bold text-green-500 font-joe ml-4">
+              #{amount}.00
+            </h1>
+          </div>
         </div>
         <div className="section_route w-full h-full p-8 flex">
           <Lodge>
@@ -169,7 +181,8 @@ const Dashboard = ({ loggedUser }: any) => {
             {state.response === true && <Response />}
 
             {state.schedules === true && <Schedules />}
-            {state.settings === true && <Settings />}
+            {state.settings === true && 
+              (userType === "patient" ? <Settings /> : <DocSettings />)}
             {/* {state.settings === true && } */}
           </Lodge>
 

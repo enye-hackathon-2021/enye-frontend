@@ -8,19 +8,19 @@ const Overview = () => {
         <Lodge className="lodge mt-4 p-4">
           <div className="w-full  grid gap-3 grid-cols-3">
             <div className="shadow-md bg-green-100 rounded-md p-2">
-              <h1 className="font-semibold">Complaint Reviewed</h1>
+              <h1 className="font-semibold text-center">Complaint Reviewed</h1>
               <div className="count text-5xl mt-2 h-16 font-bold flex items-center justify-center text-gray-600">
                 <h1>28</h1>
               </div>
             </div>
             <div className="shadow-md bg-green-100 rounded-md p-2">
-              <h1 className="font-semibold">Session Scheduled</h1>
+              <h1 className="font-semibold text-center">Session Scheduled</h1>
               <div className="count text-5xl mt-2 h-16 font-bold flex items-center justify-center text-gray-600">
                 <h1>148</h1>
               </div>
             </div>
             <div className="shadow-md bg-green-100 rounded-md p-2">
-              <h1 className="font-semibold">Total Earned</h1>
+              <h1 className="font-semibold text-center">Total Earned</h1>
               <div className="count text-5xl mt-2 h-16 font-bold flex items-center justify-center text-gray-600">
                 <h1>48</h1>
                 <span className="text-3xl mt-4 text-gray-600">#</span>
