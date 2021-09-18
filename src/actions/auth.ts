@@ -23,3 +23,14 @@ export const logInAction =
       console.log(error);
     }
   };
+  
+  export const walltAction =
+  () => async (dispatch: any) => {
+    try {
+      const { data } = await api.getWallet();
+      dispatch({ type: "GET_WALLET", data });
+    
+    } catch (error) {
+      console.log(error);
+    }
+  };
