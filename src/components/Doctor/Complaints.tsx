@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CommentIcon from "@mui/icons-material/Comment";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const questions = [
   {
@@ -45,23 +46,77 @@ const questions = [
       "Natrol stree relief, Geneca stress relief, Natures ford stree defense are all effective for releiving you of stress",
     number: 2,
   },
+
+  {
+    question: "Please recommend an effective stress reliever drug for me",
+    answer:
+      "Natrol stree relief, Geneca stress relief, Natures ford stree defense are all effective for releiving you of stress",
+    number: 2,
+  },
+
+  {
+    question: "Please recommend an effective stress reliever drug for me",
+    answer:
+      "Natrol stree relief, Geneca stress relief, Natures ford stree defense are all effective for releiving you of stress",
+    number: 2,
+  },
+
+  {
+    question: "Please recommend an effective stress reliever drug for me",
+    answer:
+      "Natrol stree relief, Geneca stress relief, Natures ford stree defense are all effective for releiving you of stress",
+    number: 2,
+  },
 ];
 
 const Response = () => {
   return (
-    <div>
+    <div >
       <Lodge className="lodge pr-8">
-        <div className="text-black font-bold text-2xl mb-5">Responses</div>
+        <div className="text-black font-bold text-2xl mb-5">
+          Available Compliants for you
+        </div>
 
-        <div></div>
+        <div className="w-full p-2 border">{questions.map((item,index) => (
+            <QuestionCard key={index}/>
+        
+        ))}</div>
       </Lodge>
     </div>
   );
 };
 
+
+function QuestionCard() {
+  return (
+    <div className="question_card w-full h-16 my-2 border flex items-center hover:shadow-xl p-2 justify-between">
+      <div className="first flex items-center">
+        <div>
+          {" "}
+          <input type="checkbox" name="" id="" />
+        </div>
+        <h1 className="question font-semibold ml-4">
+          Q. slight headace and dizzyness .....
+        </h1>
+      </div>
+          <div className="price"><p className="await text-gray-800 text-sm">2 more response</p></div>
+      <div className="action flex items-center">
+        <div className="delete cursor-pointer">
+          <BsFillTrashFill className="text-gray-500 " />
+        </div>
+        <button className="text-gray-100 bg-green-400 rounded-md font-semibold font-robo py-2 text-sm capitalize hover:text-gray-50 px-4 ml-4">
+          respond
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+
 const Lodge = styled.section`
   width: 100%;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 
   .answers {
     border: 1px solid rgba(255, 255, 255, 0.5);

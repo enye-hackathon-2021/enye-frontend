@@ -8,6 +8,8 @@ import Response from "../../components/Patient/Response";
 import Schedules from "../../components/Patient/Schedules";
 import Settings from "../../components/Patient/Settings";
 import DocOverview from "../../components/Doctor/Overview";
+import Complaints from "../../components/Doctor/Complaints";
+
 
 const user = {
   // role: "",
@@ -154,7 +156,9 @@ const Dashboard = ({ loggedUser }: any) => {
           <Lodge>
             {state.overview === true &&
               (userType === "patient" ? <Overview /> : <DocOverview />)}
-            {state.response === true && <Response />}
+            {state.response === true &&
+              (userType === "patient" ? <Response /> : <Complaints />)}
+           
 
             {state.schedules === true && <Schedules />}
             {state.settings === true && <Settings />}
@@ -189,6 +193,8 @@ const Sidebar = styled.div`
 
 const Lodge = styled.section`
   width: 70%;
+  /* background: red; */
+  overflow-y: scroll;
 `;
 
 const Session = styled.section`
