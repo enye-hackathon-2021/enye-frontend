@@ -5,10 +5,15 @@ const API = axios.create({
 });
 
 
-// API.interceptors.request.use((req) => {
-//     // retrieve token from localstorage if there is any
-//     return req;
-// })
+API.interceptors.request.use((req) => {
+    // retrieve token from localstorage if there is any
+     const token = localStorage.getItem("profile");
+    
+     if (token) {
+       req.headers.Authorization = `Bearer ${JSON.parse(token).data.token}`;
+     }
+    return req;
+})
 
 // signIn function handler
 export const signIn = (formData: any) => API.post("/register", formData);

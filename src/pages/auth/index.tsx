@@ -33,19 +33,10 @@ const UserTypeAuth = () => {
     }
   }
 
-  setTimeout(() => {
-    noNeedLogin();
-  }, 1000);
-
-
   
-    // useEffect(() => {
-    //   const User = localStorage.getItem("profile");
-
-    //   if (User) {
-    //    dispatch({type:"SIGN_IN_TOGGLE",payload:true});
-    //   }
-    // }, []);
+    useEffect(() => {
+      noNeedLogin();
+    });
 
   return (
     <Section className="auth w-full h-screen flex justify-center items-center relative">

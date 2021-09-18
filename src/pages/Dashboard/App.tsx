@@ -35,6 +35,8 @@ const Dashboard = ({ loggedUser }: any) => {
 
   useEffect(() => {
     dispatch(walltAction());
+    console.log(amount);
+    
   }, []);
 
   const [state, setState] = useState({
