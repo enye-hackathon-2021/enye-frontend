@@ -42,7 +42,7 @@ const intialUser: any = {
       dispatch(signInAction({ ...data, role: userType }, history));
       setSignedUp(true);
     } else {
-  console.log(data);
+  // console.log(data);
     
       dispatch(logInAction({ ...data, role: userType }, history));
     }

@@ -24,7 +24,7 @@ const Dashboard = ({ loggedUser }: any) => {
   //   const [signedIn, setSignedIn] = useState(true);
 
   const { userType } = useSelector(({ toggles }: any) => toggles);
-  console.log(userType);
+  // console.log(userType);
 
   const dispatch = useDispatch();
 
@@ -88,47 +88,59 @@ const Dashboard = ({ loggedUser }: any) => {
         {/*  */}
 
         <div className="nav  mt-11 flex flex-col h-auto  p-4 py-8">
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100 bg-green-200 hover:text-gray-800">
+          <Nav
+            active = {state.overview}
+            onClick={handleOverviewDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400 hover:text-gray-800"
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleOverviewDisplay}
             >
               Overview
             </div>
-          </div>
+          </Nav>
           <br />
           <span className="border border-gray-300 w-full"></span>
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100">
+          <Nav 
+            onClick={handleSchedulesDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400"
+            active = {state.schedules}  
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleSchedulesDisplay}
             >
               Schedules
             </div>
-          </div>
+          </Nav>
 
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100">
+          <Nav 
+            onClick={handleResponseDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400"
+            active = {state.response}  
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleResponseDisplay}
             >
-              {userType === "doctor" ? " Response" : "Complaint"}
+              {userType === "doctor" ? " Complaint" : "Response"}
             </div>
-          </div>
+          </Nav>
 
-          <div className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100">
+          <Nav 
+            onClick={handleSettingsDisplay} 
+            className="link_item capitalize w-full h-11 px-4 active:bg-green-100 text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400"
+            active = {state.settings}  
+          >
             <div
               className="capitalize text-white active:text-black nav"
-              onClick={handleSettingsDisplay}
             >
               Settings
             </div>
-          </div>
+          </Nav>
 
           <br />
           <span className="border border-gray-300 w-full"></span>
 
-          <div className="link_item capitalize w-full h-11 mt-6 px-4  text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-100 ">
+          <div className="link_item capitalize w-full h-11 mt-6 px-4  text-gray-700 font-bold font-robo text-lg rounded-lg flex items-center hover:bg-green-400 ">
             <button
               onClick={logOut}
               className="capitalize active:bg-green-200 text-white"
@@ -194,5 +206,10 @@ const Lodge = styled.section`
 const Session = styled.section`
   width: 30%;
 `;
+
+const Nav:any = styled.div`
+  background: ${({active}: any) => active && "rgba(0,128,0,.3)"};
+
+`
 
 export default Dashboard;
