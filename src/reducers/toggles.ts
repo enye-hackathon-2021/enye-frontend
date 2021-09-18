@@ -6,7 +6,7 @@ interface stateTypes {
 
 const states: stateTypes = {
     SignIn: false,
-    userType: "doctor"
+    userType: ""
 }
 
 const toggleReducer = (state = states, action: { type: string; payload: any }) => {

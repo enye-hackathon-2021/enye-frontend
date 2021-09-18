@@ -112,7 +112,7 @@ const Dashboard = ({ loggedUser }: any) => {
               className="capitalize text-white active:text-black nav"
               onClick={handleResponseDisplay}
             >
-              {userType === "doctor" ? " Response" : "Complaint"}
+              {userType === "patient" ? " Responses" : "Complaints"}
             </div>
           </div>
 
